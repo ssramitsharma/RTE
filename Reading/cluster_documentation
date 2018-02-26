@@ -1,3 +1,9 @@
+checking manual
+ramit@ramit-W35xSS-370SS:~$ man scp
+
 sending file
 ramit@ramit-W35xSS-370SS:~$ scp -r Densely-Interactive-Inference-Network/ rsharm2s@wr0.wr.inf.h-brrs.de:~
+
+installing software
+ pip install --user rsharm2s tensorflow
 
