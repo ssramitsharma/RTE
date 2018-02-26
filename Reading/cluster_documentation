@@ -1,0 +1,3 @@
+sending file
+ramit@ramit-W35xSS-370SS:~$ scp -r Densely-Interactive-Inference-Network/ rsharm2s@wr0.wr.inf.h-brrs.de:~
+
