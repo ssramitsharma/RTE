@@ -1,2 +1,3 @@
-http://gsi-upm.github.io/sematch/
+﻿http://gsi-upm.github.io/sematch/
 https://radimrehurek.com/gensim/tut1.html
+http://mccormickml.com/2017/01/11/word2vec-tutorial-part-2-negative-sampling/
