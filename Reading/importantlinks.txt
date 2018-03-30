@@ -5,3 +5,5 @@ git@github.com:ssramitsharma/RTE.git
 https://github.com/topics/natural-language-inference?l=python
 https://www.oreilly.com/people/c2c1c03c-0ac1-496b-87b1-3d12c2065f06
 https://danijar.com/building-variational-auto-encoders-in-tensorflow/
+https://towardsdatascience.com/lstm-by-example-using-tensorflow-feb0c1968537
+http://colah.github.io/posts/2015-08-Understanding-LSTMs/
