@@ -1,0 +1,156 @@
+Running a python program in cluster
+
+To run a python program you have we are going to use anaconda environment
+
+Installing Anaconda
+
+Commands:
+===========================================
+mkdir downloads
+cd downloads
+wget https://repo.continuum.io/archive/Anaconda3-5.1.0-Linux-x86_64.sh
+bash Anaconda3-5.1.0-Linux-x86_64.sh
+vim ~/.bashrc
+===========================================
+
+paste the below contents in your bashrc: (Source: https://gist.github.com/nitred/714f15f24c67e1c91b7efc106bc535c6)
+---------------------------------------------------------------------------------------------------
+# Source bash aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# For GIT Status
+if [ ! -f ~/.bash_git ]
+then
+    echo "~/.bash_git does not exist. Downloading now."
+    curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+    echo "Download complete."
+fi
+source ~/.bash_git
+
+git_dirty() {
+ git st 2>/dev/null | wc -l | awk '{if ($1 > 2) print "☠"}'
+}
+
+git_prompt_info() {
+if [ "`type -t __git_ps1`" == 'function' ]; then
+ export GIT_PS1_SHOWDIRTYSTATE=true     # '*' for unstaged changes, '+' for staged
+ export GIT_PS1_SHOWSTASHSTATE=true     # '$' if smth is stashed
+ export GIT_PS1_SHOWUNTRACKEDFILES=true # '%' if un-tracked files
+fi
+ branch_prompt=$(__git_ps1)
+ if [ -n "$branch_prompt" ]; then
+   status_icon=$(git_dirty)
+   echo $branch_prompt $status_icon
+ fi
+}
+
+# '*' for unstaged changes, '+' for staged
+# '$' if smth is stashed
+# '%' if un-tracked files
+function prompt {
+   local BLACK="\[\033[0;30m\]"
+   local RED="\[\033[0;31m\]"
+   local GREEN="\[\033[0;32m\]"
+   local YELLOW="\[\033[0;33m\]"
+   local BLUE="\[\033[0;34m\]"
+   local PURPLE="\[\033[0;35m\]"
+   local CYAN="\[\033[0;36m\]"
+   local WHITE="\[\033[0;37m\]"
+   local WHITEBOLD="\[\033[1;37m\]"
+   local __cur_location="\[\033[01;33m\]\w"
+   local __git_branch_color="\[\033[31m\]"
+   local __user_and_host="\[\033[01;32m\]\u@\h"
+
+   export PS1="$__user_and_host\$ $__cur_location $__git_branch_color\$(git_prompt_info)${WHITE} \n\$ "
+}
+
+prompt
+
+---------------------------------------------------------------------------------------------------
+
+===========================================
+vim ~/.conda_bashrc3
+===========================================
+
+paste the contents below: 
+Source: ("https://gist.github.com/nitred/714f15f24c67e1c91b7efc106bc535c6")
+
+---------------------------------------------------------------------------------------------------
+#!/bin/bash
+echo "CONDA-BASHRC 3"
+
+if [ -f ~/.bashrc ]
+then
+    source ~/.bashrc
+fi
+
+function condapy() {
+     local RED="\[\033[0;31m\]"
+     PATH=$HOME/anaconda3/bin:$PATH
+     export PS1="$RED[CONDA3] $PS1"
+ }
+
+condapy
+
+alias ipy='jupyter qtconsole'
+alias startnb='jupyter notebook'
+alias nb2pdf='jupyter nbconvert --to latex --post PDF'
+condaforge() { conda install -c conda-forge "$@" ;}
+---------------------------------------------------------------------------------------------------
+
+===========================================
+vim ~/.bash_aliases
+===========================================
+
+paste the contents below:
+Source: ("https://gist.github.com/nitred/714f15f24c67e1c91b7efc106bc535c6")
+
+---------------------------------------------------------------------------------------------------
+alias anaconda3='bash --rcfile ~/.conda_bashrc3'
+---------------------------------------------------------------------------------------------------
+
+===========================================
+source ~/.bashrc
+anaconda3
+===========================================
+
+Now we are in the anaconda environment
+
+===========================================
+cd ..
+mkdir projects
+cd projects
+mkdir hello_world
+cd hello_world
+vim hello_world.py
+print("hello world")
+python hello_world.py
+===========================================
+
+Hurray! done
+
+Next step is to install tensorflow
+create a file named Notes
+get the yml file from https://github.com/sksenthilkumar/Notes/blob/master/dev_environment.yml
+put the yml document in a file called Notes
+run the code 
+scp -r Notes rsharm2s@wr0.wr.inf.h-brs.de:~
+to install tensorflow move to the respected notes file and use the  following code:
+'conda env create --force -f     dev_environment.yml'
+
+
+to run a bash file
+qsub deeplab.sh
+
+to check for the status
+qstat
+
+to check for the error
+cat deeplab.sh.e4463
+
+to check for the output
+cat deeplab.sh.e4463
+
+
