@@ -142,7 +142,7 @@ to install tensorflow move to the respected notes file and use the  following co
 
 
 to run a bash file
-qsub deeplab.sh
+qsub deeplab.sh (where deeplab.sh is a file which gives a job description, its also availble in this repo)
 
 to check for the status
 qstat
