@@ -148,9 +148,9 @@ to check for the status
 qstat
 
 to check for the error
-cat deeplab.sh.e4463
+cat deeplab.sh.e4463  (where jobnumber is 4463)
 
 to check for the output
-cat deeplab.sh.e4463
+cat deeplab.sh.o4463
 
 
