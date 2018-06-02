@@ -7,3 +7,14 @@ https://www.oreilly.com/people/c2c1c03c-0ac1-496b-87b1-3d12c2065f06
 https://danijar.com/building-variational-auto-encoders-in-tensorflow/
 https://towardsdatascience.com/lstm-by-example-using-tensorflow-feb0c1968537
 http://colah.github.io/posts/2015-08-Understanding-LSTMs/
+https://keunwoochoi.wordpress.com/2016/11/18/for-beginners-writing-a-custom-keras-layer/
+https://cran.rstudio.com/web/packages/keras/vignettes/custom_layers.html
+https://www.saama.com/blog/deep-learning-diaries-building-custom-layers-in-keras/
+https://faroit.github.io/keras-docs/1.1.0/layers/writing-your-own-keras-layers/
+https://github.com/keras-team/keras/blob/master/examples/antirectifier.py
+https://raghakot.github.io/keras-text/keras_text.models.layers/
+https://hub.packtpub.com/customizing-deep-learning-models-keras/
+https://tensorflow.rstudio.com/keras/articles/custom_layers.html
+https://tensorflow.rstudio.com/keras/articles/custom_layers.html
+http://shashank-gupta.com/2016/10/12/Custom-Layer-In-Keras-Graph-Embedding-Case-Study/
+http://tiao.io/posts/implementing-variational-autoencoders-in-keras-beyond-the-quickstart-tutorial/
